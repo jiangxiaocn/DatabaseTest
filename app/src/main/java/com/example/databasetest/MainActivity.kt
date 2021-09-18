@@ -63,6 +63,29 @@ class MainActivity : AppCompatActivity() {
                 }
                 cursor.close()
             }
-        }
+            replaceData.setOnClickListener {
+                val db = dbHelper.writableDatabase
+                db.beginTransaction() // 开启事务
+                try {
+                    db.delete("Book", null, null)
+                    if (true) {
+                        // 手动抛出一个异常，让事务失败
+                        throw NullPointerException()
+                    }
+                    val values = ContentValues().apply {
+                        put("name", "Game of Thrones")
+                        put("author", "George Martin")
+                        put("pages", 720)
+                        put("price", 20.85)
+                    }
+                    db.insert("Book", null, values)
+                    db.setTransactionSuccessful() // 事务已经执行成功
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                } finally {
+                    db.endTransaction() // 结束事务
+                }
+            }
+    }
     }
 }

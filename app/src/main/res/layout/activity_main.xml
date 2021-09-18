@@ -34,5 +34,10 @@
         android:layout_height="wrap_content"
         android:text="Query Data"
         />
-   
+    <Button
+        android:id="@+id/replaceData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Replace Data"
+        />
 </LinearLayout>
