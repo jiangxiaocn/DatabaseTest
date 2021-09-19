@@ -81,7 +81,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="$PROJECT_DIR$/../../BookStore.db" schema="main" />
+            <file path="$USER_HOME$/BookStore.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
